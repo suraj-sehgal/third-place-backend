@@ -1,0 +1,37 @@
+{
+  "kind": "collectionType",
+  "collectionName": "amenities",
+  "info": {
+    "singularName": "amenity",
+    "pluralName": "amenities",
+    "displayName": "amenity",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "isPaid": {
+      "type": "boolean"
+    },
+    "priceIncredits": {
+      "type": "integer"
+    },
+    "description": {
+      "type": "string"
+    },
+    "isVendorProvided": {
+      "type": "boolean"
+    },
+    "hubs": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::hub.hub",
+      "inversedBy": "amenities"
+    }
+  }
+}

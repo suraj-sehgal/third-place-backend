@@ -1,0 +1,28 @@
+{
+  "kind": "collectionType",
+  "collectionName": "admins",
+  "info": {
+    "singularName": "admin",
+    "pluralName": "admins",
+    "displayName": "admin",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "hub": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::hub.hub",
+      "mappedBy": "admin"
+    },
+    "users_permissions_user": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user",
+      "mappedBy": "admin"
+    }
+  }
+}

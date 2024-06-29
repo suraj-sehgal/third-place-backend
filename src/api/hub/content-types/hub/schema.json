@@ -1,0 +1,101 @@
+{
+  "kind": "collectionType",
+  "collectionName": "hubs",
+  "info": {
+    "singularName": "hub",
+    "pluralName": "hubs",
+    "displayName": "hub",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "address": {
+      "type": "string"
+    },
+    "admin": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::admin.admin",
+      "inversedBy": "hub"
+    },
+    "super_admin": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::super-admin.super-admin",
+      "inversedBy": "hub"
+    },
+    "location": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::location.location",
+      "mappedBy": "hub"
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "hub"
+      ]
+    },
+    "iaOwned": {
+      "type": "boolean"
+    },
+    "openingTime": {
+      "type": "time"
+    },
+    "closingTime": {
+      "type": "time"
+    },
+    "isActive": {
+      "type": "boolean"
+    },
+    "featuredImage": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "additionalImages": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "amenities": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::amenity.amenity",
+      "mappedBy": "hubs"
+    },
+    "inventories": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::inventory.inventory",
+      "mappedBy": "hub"
+    },
+    "bookings": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::booking.booking",
+      "mappedBy": "hub"
+    },
+    "hubName": {
+      "type": "string"
+    },
+    "aboutHub": {
+      "type": "text"
+    }
+  }
+}

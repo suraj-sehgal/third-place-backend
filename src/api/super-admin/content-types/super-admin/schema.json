@@ -1,0 +1,28 @@
+{
+  "kind": "collectionType",
+  "collectionName": "super_admins",
+  "info": {
+    "singularName": "super-admin",
+    "pluralName": "super-admins",
+    "displayName": "superAdmin",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "hub": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::hub.hub",
+      "mappedBy": "super_admin"
+    },
+    "users_permissions_user": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user",
+      "mappedBy": "super_admin"
+    }
+  }
+}

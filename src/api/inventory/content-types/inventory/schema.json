@@ -1,0 +1,62 @@
+{
+  "kind": "collectionType",
+  "collectionName": "inventories",
+  "info": {
+    "singularName": "inventory",
+    "pluralName": "inventories",
+    "displayName": "inventory",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "capacity": {
+      "type": "integer"
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "flexiSeat",
+        "table",
+        "room"
+      ]
+    },
+    "priceIncredits": {
+      "type": "integer"
+    },
+    "isActive": {
+      "type": "boolean"
+    },
+    "isPremium": {
+      "type": "boolean"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "hub": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::hub.hub",
+      "inversedBy": "inventories"
+    },
+    "inventoryId": {
+      "type": "uid"
+    },
+    "bookings": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::booking.booking",
+      "mappedBy": "inventory"
+    }
+  }
+}
